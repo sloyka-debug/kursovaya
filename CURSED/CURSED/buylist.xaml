@@ -1,0 +1,51 @@
+﻿<Page x:Class="CURSED.buylist"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CURSED"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="533"
+      Title="buylist">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="533"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGridCell Background="#e8e8e8" BorderBrush="#e8e8e8" Grid.Column="0" Grid.ColumnSpan="3">
+<Button x:Name="toorderbutt" Content="ЗАКАЗАТЬ"  HorizontalAlignment="Left" Margin="137,351,0,0" Grid.Column="0" VerticalAlignment="Top" Width="258" Height="68" Style="{StaticResource Button}" FontSize="24" FontWeight="Bold" Click="toOrderClick" >
+            </Button>
+        </DataGridCell>
+        <Label x:Name="userlable" Visibility="Hidden"></Label>
+        
+
+        
+
+        <ListBox x:Name="FoodList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1" Background="#e8e8e8" SelectionChanged="FoodToDelete" Height="340" VerticalAlignment="Top">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel >
+                        <Image Height="100" Width="100" Source="{Binding Path=ImagePath}"/>
+                        <StackPanel HorizontalAlignment="Center" Width="150">
+                            <Label Content="{Binding Path=Foodname}" HorizontalAlignment="Center"/>
+                            <Label Content="{Binding Path= Amount}" HorizontalAlignment="Center"/>
+                            <Label Content="{Binding Path=Price}" HorizontalAlignment="Center"/>
+
+                            <Label Content="{Binding Path=ID}" HorizontalAlignment="Center" Visibility="Hidden"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Page>
